@@ -1,5 +1,6 @@
-A = [1,1,1,1,5,5,5,0,8,1,1,1,1,1]
-m = 100
+#Storing counting in another array
+A = [1,1,1,1,5,5,5,0,8,1,1,1,1,9]
+m = len(A)
 
 def counting(A, m): 
     n = len(A) 
@@ -9,3 +10,5 @@ def counting(A, m):
     return count
 
 print(counting(A,m))
+
+
