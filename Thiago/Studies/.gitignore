@@ -1,0 +1,81 @@
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Dd]istro/
+[Dd]eploy/
+[Dd]ebug/arm/
+[Dd]ebug/any/
+[Dd]ebug/x64/
+[Dd]ebug/x86/
+[Dd]ebug/any/
+[Dd]ebug/ios/
+[Dd]ebug/android/
+[Dd]ebug/uwp/
+[Dd]ebug/rhel/
+[Dd]ebug/win32/
+bin/
+obj/
+
+# User-specific files
+.idea/
+.vscode/
+.vs/
+.vs2017/
+.vs2019/
+.vs2022/
+.vs2015/
+user.config
+appsettings.json
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows Installer files for the .NET Core SDK
+*.tar.gz
+
+# User-specific files
+.vscode/settings.json
+
+# .NET Core build files
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# ASP.NET specific
+# ASP.NET temp files
+Temporary ASP.NET Files/
+# ASP.NET debug logs
+web.config.debug/
+
+# Rider config folder
+.idea/
+
+# User-specific JetBrains Rider files
+.idea/
+
+# User-specific Visual Studio Code files
+.vscode/
+
+# DotCover coverage results
+.dotCover
+
+# Windows Installer logs
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Node.js package management folders
+node_modules/
+
+# Windows Installer temporary files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# User-specific JetBrains Rider files
+.idea/
