@@ -16,6 +16,7 @@ namespace Studies
         {
             for (int j = 0; j < toSort.Length - 1; j++)
             {
+                var swapped = false;
                 for (int i = 0; i < toSort.Length - j - 1; i++)
                 {
                     if (toSort[i] > toSort[i + 1])
@@ -23,14 +24,16 @@ namespace Studies
                         var aux = toSort[i];
                         toSort[i] = toSort[i + 1];
                         toSort[i + 1] = aux;
+                        swapped = true;
                     }
                 }
+                if (!swapped) break;
             }
 
             return toSort;
         }
 
-        /*5 4 3
+        /*1 2 3
           4 3 5
 
          */
