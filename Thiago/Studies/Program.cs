@@ -11,54 +11,17 @@ namespace Studies
     {
         static void Main(string[] args)
         {
-            var math = "{((2+1)*[2+1])}";
-            var stack = new Stack<char>();
-            var possibilities = new Dictionary<char, char>();
-            var isValid = true;
+            var stack = new Stack<int>()
+                .Add(5)
+                .Add(4)
+                .Add(3)
+                .Add(2)
+                .Add(1);
 
-            possibilities.Add('{', '}');
-            possibilities.Add('(', ')');
-            possibilities.Add('[', ']');
-
-            foreach (var m in math)
+            while (!stack.IsEmpty)
             {
-                if (possibilities.ContainsKey(m))
-                {
-                    stack.Add(m);
-                    continue;
-                }
-
-                if (possibilities.Values.Contains(m))
-                {
-                    if (stack.IsEmpty)
-                    {
-                        isValid = false;
-                        break;
-                    }
-
-                    var value = stack.Pop();
-                    if(possibilities[value] != m)
-                    {
-                        isValid = false;
-                        break;
-                    }
-                }
+                Console.WriteLine(stack.Pop());
             }
-
-            Console.WriteLine($"is {(isValid ? "Valid": "Invalid")}");
-
-
-            //var stack = new Stack<int>()
-            //    .Add(5)
-            //    .Add(4)
-            //    .Add(3)
-            //    .Add(2)
-            //    .Add(1);
-
-            //while (!stack.IsEmpty)
-            //{
-            //    Console.WriteLine(stack.Pop());
-            //}
 
 
 

@@ -1,13 +1,46 @@
 ﻿namespace Studies
 {
-    public class Node<T>
+    public abstract class Node<T>
     {
-        public T Value { get; }
-        public Node<T> Tail { get; set; }
+        public abstract T Value { get; }
+        public abstract Node<T> Tail { get; }
+        public abstract bool IsEmpty { get; }
 
-        public Node(T value)
+        public static Node<T> Empty()
         {
-            Value = value;
+            return new EmptyNode();
+        }
+
+        public static Node<T> Create(T value, Node<T> tail)
+        {
+            if (tail is null)
+                throw new System.ArgumentNullException();
+
+            return new NotEmptyNode(value, tail);
+        }
+
+        private class NotEmptyNode : Node<T>
+        {
+            public NotEmptyNode(T value, Node<T> tail)
+            {
+                Value = value;
+                Tail = tail;
+            }
+
+            public override bool IsEmpty => false;
+
+            public override T Value { get; }
+
+            public override Node<T> Tail { get; }
+        }
+
+        private class EmptyNode : Node<T>
+        {
+            public override bool IsEmpty => true;
+
+            public override T Value => throw new System.NotImplementedException();
+
+            public override Node<T> Tail => throw new System.NotImplementedException();
         }
     }
 }
