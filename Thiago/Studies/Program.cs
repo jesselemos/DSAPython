@@ -11,6 +11,7 @@ namespace Studies
     {
         static void Main(string[] args)
         {
+
             var stack = new Stack<int>()
                 .Add(5)
                 .Add(4)
@@ -22,6 +23,19 @@ namespace Studies
             {
                 Console.WriteLine(stack.Pop());
             }
+
+            var queue = new Queue<int>()
+                .Enqueue(5)
+                .Enqueue(4)
+                .Enqueue(3)
+                .Enqueue(2)
+                .Enqueue(1);
+
+            while (!queue.IsEmpty)
+            {
+                Console.WriteLine(queue.Dequeue());
+            }
+
 
 
 

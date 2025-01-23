@@ -1,23 +1,33 @@
 ﻿namespace Studies
 {
-    public class Stack<T>
+    public class Queue<T>
     {
         private Node<T> Head;
+        private Node<T> Tail;
         public bool IsEmpty => Head.IsEmpty;
 
-        public Stack()
+        public Queue()
         {
             Head = Node<T>.Empty();
+            Tail = Head;
         }
 
-        public Stack<T> Add(T value)
+        public Queue<T> Enqueue(T value)
         {
-            var node = Node<T>.Create(value, Head);
-            Head = node;
+            var node = Node<T>.Create(value);
+            if (IsEmpty)
+            {
+                Head = node;
+                Tail = node;
+                return this;
+            }
+
+            Tail.UpdateNext(node);
+            Tail = node;
             return this;
         }
 
-        public T Pop()
+        public T Dequeue()
         {
             if (IsEmpty)
                 throw new System.InvalidOperationException();
@@ -35,4 +45,5 @@
             return Head.Value;
         }
     }
+
 }
