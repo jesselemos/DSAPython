@@ -18,12 +18,12 @@
             return new NotEmptyNode(value, Empty());
         }
 
-        public static Node<T> Create(T value, Node<T> tail)
+        public static Node<T> Create(T value, Node<T> node)
         {
-            if (tail is not Node<T>)
-                throw new System.ArgumentNullException();
+            if (node is not Node<T>)
+                throw new System.ArgumentNullException(nameof(node));
 
-            return new NotEmptyNode(value, tail);
+            return new NotEmptyNode(value, node);
         }
 
         private class NotEmptyNode : Node<T>
@@ -43,7 +43,7 @@
             public override void UpdateNext(Node<T> node)
             {
                 if (node is not Node<T>)
-                    throw new System.ArgumentNullException();
+                    throw new System.ArgumentNullException(nameof(node));
 
                 Next = node;
             }
