@@ -14,14 +14,14 @@
 
         public Queue<T> Enqueue(T value)
         {
-            var node = Node<T>.Create(value);
             if (IsEmpty)
             {
-                Head = node;
-                Tail = node;
+                Head = Node<T>.Create(value, Tail);
+                Tail = Head;
                 return this;
             }
 
+            var node = Node<T>.Create(value, Tail.Next);
             Tail.UpdateNext(node);
             Tail = node;
             return this;
