@@ -45,5 +45,4 @@
             return Head.Value;
         }
     }
-
 }
