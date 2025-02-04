@@ -11,16 +11,19 @@ namespace Studies
     {
         static void Main(string[] args)
         {
-            var stack = new RingBuffer<int>(5)
-                .Enqueue(5)
-                .Enqueue(4)
-                .Enqueue(3)
+            var stack = new RingBuffer<int>(4)
+                .Enqueue(1)
                 .Enqueue(2)
-                .Enqueue(1);
+                .Enqueue(3)
+                .Enqueue(4)
+                .Enqueue(5);
 
             stack.Dequeue();
             stack.Enqueue(0);
             stack.Enqueue(6);
+            stack.Enqueue(7);
+            stack.Enqueue(8);
+            stack.Enqueue(9);
 
 
             //var stack = new Stack<int>()

@@ -21,15 +21,33 @@
 
         public RingBuffer<T> Enqueue(T value)
         {
+            if (IsFull)
+                IncreaseBuffer();
+
             Buffer[IndexHead] = value;
             IndexHead = (IndexHead + 1) % Size;
-
-            if (IsFull)
-                IndexTail = (IndexTail + 1) % Size;
-            else
-                Length++;
+            Length++;
 
             return this;
+        }
+
+        private void IncreaseBuffer()
+        {
+            var newSize = Size * 2;
+            var newBuffer = new T[newSize];
+            var index = 0;
+
+            while(!IsEmpty)
+            {
+                newBuffer[index] = Dequeue();
+                index++;
+            }
+
+            Size = newSize;
+            Buffer = newBuffer;
+            IndexHead = index;
+            IndexTail = 0;
+            Length = index;
         }
 
         public T Dequeue()
@@ -44,23 +62,3 @@
         }
     }
 }
-
-
-/*
-def dequeue(self):
-        if self.is_empty():
-            raise IndexError("Buffer is empty")
-        item = self.buffer[self.tail]
-        self.tail = (self.tail + 1) % self.capacity
-        self.size -= 1
-        return item
-
-def enqueue(self, item):
-        if self.is_full():
-            # Overwrite the oldest data if the buffer is full
-            self.tail = (self.tail + 1) % self.capacity
-        else:
-            self.size += 1
-        self.buffer[self.head] = item
-        self.head = (self.head + 1) % self.capacity
- * */
